@@ -4,10 +4,6 @@ ARG CMAKE_PRESET=development
 ENV ROM_DIR /var/86Box-roms
 ENV WORKING_DIR /temp/86Box
 
-RUN echo $CMAKE_PRESET
-
-RUN python3 -c "exit(1)"
-
 RUN mkdir -p "$WORKING_DIR"
 
 RUN dnf -y upgrade --refresh && \
