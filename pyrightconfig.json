@@ -1,0 +1,6 @@
+{
+    "reportUnusedImport": false,
+    "reportUnusedFunction": false,
+    "reportInvalidTypeVarUse": false,
+    "reportUnusedVariable": false
+}

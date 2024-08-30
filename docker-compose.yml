@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  custom:
+    container-name: 86box-distrobox
+    environment:
+      - CMAKE_PRESET
+    build:
+      context: .
+      dockerfile: Containerfile
