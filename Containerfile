@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:latest
+FROM registry.fedoraproject.org/fedora:43
 
 ARG CMAKE_PRESET=development
 ENV ROM_DIR /var/86Box-roms
@@ -7,20 +7,20 @@ ENV WORKING_DIR /temp/86Box
 RUN mkdir -p "$WORKING_DIR"
 
 RUN dnf -y upgrade --refresh && \
-    dnf -y groupinstall "C Development Tools and Libraries" && \
+    dnf -y group install c-development && \
     dnf -y install \
         --setopt=install_weak_deps=False \
         #Ensure tar, wget, python3 and requests are installed (should always be but doesn't hurt)
         tar wget python3 python-requests \
         #86Box build dependencies
-        cmake extra-cmake-modules pkg-config \
-        ninja-build freetype-devel SDL2-devel \
-        libatomic libpng-devel libslirp-devel \
-        libXi-devel openal-soft-devel rtmidi-devel \
-        fluidsynth-devel libsndfile-devel \
-        qt5-linguist qt5-qtconfiguration-devel \
-        qt5-qtbase-private-devel qt5-qtbase-static \
-        wayland-devel libevdev-devel \
+        make extra-cmake-modules \
+        pkg-config ninja-build freetype-devel \
+        SDL2-devel libatomic libpng-devel \
+        libslirp-devel libXi-devel openal-soft-devel \
+        rtmidi-devel fluidsynth-devel libsndfile-devel \
+        libserialport-devel qt5-linguist \
+        qt5-qtconfiguration-devel qt5-qtbase-private-devel\
+        qt5-qtbase-static wayland-devel libevdev-devel\
         libxkbcommon-x11-devel zlib-ng-compat-static
 
 #Ensure python3 version is at least 3.12.0
