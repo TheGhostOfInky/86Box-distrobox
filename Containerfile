@@ -13,7 +13,7 @@ RUN dnf -y upgrade --refresh && \
         #Ensure tar, wget, python3 and requests are installed (should always be but doesn't hurt)
         tar wget python3 python-requests \
         #86Box build dependencies
-        make extra-cmake-modules \
+        cmake extra-cmake-modules \
         pkg-config ninja-build freetype-devel \
         SDL2-devel libatomic libpng-devel \
         libslirp-devel libXi-devel openal-soft-devel \
